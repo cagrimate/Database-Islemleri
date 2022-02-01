@@ -30,15 +30,6 @@ namespace ConnectGiris
         private void InitializeComponent()
         {
             this.dgvHayvanlar = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cinsiyet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DogumTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Kutle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tur = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Yas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sil = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Guncelle = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,6 +42,16 @@ namespace ConnectGiris
             this.cmbCinsiyet = new System.Windows.Forms.ComboBox();
             this.btnekle = new System.Windows.Forms.Button();
             this.lblHayvanSayisi = new System.Windows.Forms.Label();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cinsiyet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DogumTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Kutle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tur = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Yas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FavoriYiyecekId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sil = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Guncelle = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHayvanlar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKutle)).BeginInit();
             this.SuspendLayout();
@@ -71,6 +72,7 @@ namespace ConnectGiris
             this.Kutle,
             this.Tur,
             this.Yas,
+            this.FavoriYiyecekId,
             this.Sil,
             this.Guncelle});
             this.dgvHayvanlar.Location = new System.Drawing.Point(426, 8);
@@ -79,63 +81,10 @@ namespace ConnectGiris
             this.dgvHayvanlar.ReadOnly = true;
             this.dgvHayvanlar.RowHeadersVisible = false;
             this.dgvHayvanlar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHayvanlar.Size = new System.Drawing.Size(782, 508);
+            this.dgvHayvanlar.Size = new System.Drawing.Size(806, 508);
             this.dgvHayvanlar.TabIndex = 0;
             this.dgvHayvanlar.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHayvanlar_CellContentClick);
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            // 
-            // Ad
-            // 
-            this.Ad.HeaderText = "Ad";
-            this.Ad.Name = "Ad";
-            this.Ad.ReadOnly = true;
-            // 
-            // Cinsiyet
-            // 
-            this.Cinsiyet.HeaderText = "Cinsiyet";
-            this.Cinsiyet.Name = "Cinsiyet";
-            this.Cinsiyet.ReadOnly = true;
-            // 
-            // DogumTarihi
-            // 
-            this.DogumTarihi.HeaderText = "Dogum Tarihi";
-            this.DogumTarihi.Name = "DogumTarihi";
-            this.DogumTarihi.ReadOnly = true;
-            // 
-            // Kutle
-            // 
-            this.Kutle.HeaderText = "Kütle";
-            this.Kutle.Name = "Kutle";
-            this.Kutle.ReadOnly = true;
-            // 
-            // Tur
-            // 
-            this.Tur.HeaderText = "Tür";
-            this.Tur.Name = "Tur";
-            this.Tur.ReadOnly = true;
-            // 
-            // Yas
-            // 
-            this.Yas.HeaderText = "Yaş";
-            this.Yas.Name = "Yas";
-            this.Yas.ReadOnly = true;
-            // 
-            // Sil
-            // 
-            this.Sil.HeaderText = "Sil";
-            this.Sil.Name = "Sil";
-            this.Sil.ReadOnly = true;
-            // 
-            // Guncelle
-            // 
-            this.Guncelle.HeaderText = "Guncelle";
-            this.Guncelle.Name = "Guncelle";
-            this.Guncelle.ReadOnly = true;
+            this.dgvHayvanlar.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvHayvanlar_CellMouseDoubleClick);
             // 
             // label1
             // 
@@ -189,6 +138,7 @@ namespace ConnectGiris
             // 
             // txtAd
             // 
+            this.txtAd.BackColor = System.Drawing.Color.Aqua;
             this.txtAd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtAd.Location = new System.Drawing.Point(216, 38);
             this.txtAd.Name = "txtAd";
@@ -197,6 +147,7 @@ namespace ConnectGiris
             // 
             // txtTur
             // 
+            this.txtTur.BackColor = System.Drawing.Color.Aqua;
             this.txtTur.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtTur.Location = new System.Drawing.Point(226, 207);
             this.txtTur.Name = "txtTur";
@@ -205,6 +156,7 @@ namespace ConnectGiris
             // 
             // dtpDogumTarihi
             // 
+            this.dtpDogumTarihi.CalendarMonthBackground = System.Drawing.Color.Aqua;
             this.dtpDogumTarihi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.dtpDogumTarihi.Location = new System.Drawing.Point(176, 162);
             this.dtpDogumTarihi.Name = "dtpDogumTarihi";
@@ -213,6 +165,7 @@ namespace ConnectGiris
             // 
             // nudKutle
             // 
+            this.nudKutle.BackColor = System.Drawing.Color.Aqua;
             this.nudKutle.DecimalPlaces = 2;
             this.nudKutle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.nudKutle.Increment = new decimal(new int[] {
@@ -232,6 +185,7 @@ namespace ConnectGiris
             // 
             // cmbCinsiyet
             // 
+            this.cmbCinsiyet.BackColor = System.Drawing.Color.Aqua;
             this.cmbCinsiyet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCinsiyet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbCinsiyet.FormattingEnabled = true;
@@ -265,12 +219,72 @@ namespace ConnectGiris
             this.lblHayvanSayisi.TabIndex = 7;
             this.lblHayvanSayisi.Text = "Hayvan sayısı 0";
             // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // Ad
+            // 
+            this.Ad.HeaderText = "Ad";
+            this.Ad.Name = "Ad";
+            this.Ad.ReadOnly = true;
+            // 
+            // Cinsiyet
+            // 
+            this.Cinsiyet.HeaderText = "Cinsiyet";
+            this.Cinsiyet.Name = "Cinsiyet";
+            this.Cinsiyet.ReadOnly = true;
+            // 
+            // DogumTarihi
+            // 
+            this.DogumTarihi.HeaderText = "Dogum Tarihi";
+            this.DogumTarihi.Name = "DogumTarihi";
+            this.DogumTarihi.ReadOnly = true;
+            // 
+            // Kutle
+            // 
+            this.Kutle.HeaderText = "Kütle";
+            this.Kutle.Name = "Kutle";
+            this.Kutle.ReadOnly = true;
+            // 
+            // Tur
+            // 
+            this.Tur.HeaderText = "Tür";
+            this.Tur.Name = "Tur";
+            this.Tur.ReadOnly = true;
+            // 
+            // Yas
+            // 
+            this.Yas.HeaderText = "Yaş";
+            this.Yas.Name = "Yas";
+            this.Yas.ReadOnly = true;
+            // 
+            // FavoriYiyecekId
+            // 
+            this.FavoriYiyecekId.HeaderText = "FavYiyecekId";
+            this.FavoriYiyecekId.Name = "FavoriYiyecekId";
+            this.FavoriYiyecekId.ReadOnly = true;
+            // 
+            // Sil
+            // 
+            this.Sil.HeaderText = "Sil";
+            this.Sil.Name = "Sil";
+            this.Sil.ReadOnly = true;
+            // 
+            // Guncelle
+            // 
+            this.Guncelle.HeaderText = "Guncelle";
+            this.Guncelle.Name = "Guncelle";
+            this.Guncelle.ReadOnly = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Salmon;
-            this.ClientSize = new System.Drawing.Size(1220, 528);
+            this.ClientSize = new System.Drawing.Size(1279, 542);
             this.Controls.Add(this.lblHayvanSayisi);
             this.Controls.Add(this.btnekle);
             this.Controls.Add(this.cmbCinsiyet);
@@ -318,6 +332,7 @@ namespace ConnectGiris
         private System.Windows.Forms.DataGridViewTextBoxColumn Kutle;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tur;
         private System.Windows.Forms.DataGridViewTextBoxColumn Yas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FavoriYiyecekId;
         private System.Windows.Forms.DataGridViewButtonColumn Sil;
         private System.Windows.Forms.DataGridViewButtonColumn Guncelle;
     }

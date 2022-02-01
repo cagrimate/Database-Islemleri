@@ -53,6 +53,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Hayvan.cs" />
+    <Compile Include="HayvanlYiyecekForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HayvanlYiyecekForm.Designer.cs">
+      <DependentUpon>HayvanlYiyecekForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UpdateForm.cs">
@@ -63,6 +69,9 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HayvanlYiyecekForm.resx">
+      <DependentUpon>HayvanlYiyecekForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

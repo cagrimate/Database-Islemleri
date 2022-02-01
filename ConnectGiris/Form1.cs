@@ -32,6 +32,8 @@ namespace ConnectGiris
             HayvanSayisi();
             dgvHayvanlar.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
             dgvHayvanlar.Columns[6].SortMode = DataGridViewColumnSortMode.NotSortable;
+            dgvHayvanlar.Columns[7].SortMode = DataGridViewColumnSortMode.NotSortable;
+
         }
 
         private void HayvanSayisi()
@@ -50,13 +52,13 @@ namespace ConnectGiris
             //lblHayvanSayisini da guncelleyiniz
             dgvHayvanlar.Rows.Clear();
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "select Id,Ad,Cinsiyet,DogumTarihi,Kutle,Tur,Yas from Hayvanlar";
+            cmd.CommandText = "select Id,Ad,Cinsiyet,DogumTarihi,Kutle,Tur,Yas,FavoriYiyecekId from Hayvanlar";
             cmd.Connection = con;
 
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                dgvHayvanlar.Rows.Add(dr[0], dr[1], dr[2], dr[3], dr[4], dr[5], dr[6], "SIL", "GUNCELLE");
+                dgvHayvanlar.Rows.Add(dr[0], dr[1], dr[2], dr[3], dr[4], dr[5], dr[6],dr[7],"SIL", "GUNCELLE");
             }
             dr.Close();
             //dataGridView1.DataSource = hayvan;          
@@ -157,6 +159,24 @@ namespace ConnectGiris
                 updateform.ShowDialog();
                 HayvanlariListele();
             }
+        }
+
+        private void dgvHayvanlar_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            //seçili hayvanın idsini alarak yeni bir formda dgv de o yiyeceği seven hayvanları listeleyiniz
+            //bu işlem yapılırken store procedure execute edilecek 
+            //dgv üzerinde ise yiyeceğin adı ve kalıri bilgisi yazsın
+            if (e.RowIndex<0)
+            {
+                return;
+            }
+            int yiyecekId =(int)dgvHayvanlar.SelectedRows[0].Cells[7].Value;
+            HayvanlYiyecekForm hayvanYiyecekForm = new HayvanlYiyecekForm(con,yiyecekId);
+            MessageBox.Show(yiyecekId.ToString());
+            hayvanYiyecekForm.ShowDialog();
+
+
+
         }
     }
 }
